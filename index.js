@@ -1,7 +1,11 @@
-var cool = require('cool-ascii-faces');
-var express = require('express');
-var pg = require('pg');
-var app = express();
+const cool = require('cool-ascii-faces');
+const express = require('express');
+const pg = require('pg');
+const http = require('http')
+const fortune = require('fortune')
+const fortuneHTTP = require('fortune-http')
+const jsonApiSerializer = require('fortune-json-api')
+const app = express();
 
 app.set('port', (process.env.PORT || 5000));
 
