@@ -4,8 +4,26 @@ const pg = require('pg');
 const http = require('http')
 const fortune = require('fortune')
 const fortuneHTTP = require('fortune-http')
+const postgresAdapter = require('fortune-postgres')
 const jsonApiSerializer = require('fortune-json-api')
 const app = express();
+
+const username = 'obnuflvuveexxj'
+const password = '4362adcc7d7c35b4c502c40d7db0298d68c563fbd03cd7e6240295817ce44fd7'
+const host = 'ec2-23-21-220-152.compute-1.amazonaws.com'
+const port = '5432'
+const db = 'dcbl123hop9rcv'
+const store = fortune({
+  // Fortune Configuration
+}, {
+  adapter: [
+    postgresAdapter,
+    {
+      // options object, URL is mandatory.
+      url: `postgres://${username}:${password}@${host}:${port}/${db}`
+    }
+  ]
+})
 
 app.set('port', (process.env.PORT || 5000));
 
