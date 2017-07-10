@@ -35,7 +35,7 @@ const db = 'dcbl123hop9rcv'
 const recordTypes = {
   show: {
     title: String,
-    date: String,
+    when: String,
     artists: String,
     link: String,
     status: String,
