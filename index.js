@@ -51,7 +51,7 @@ const recordTypes = {
 /**** The Postgres Adapter ****/
 
 const adapter = [ postgresAdapter, {
-  url: url: `postgres://${username}:${password}@${host}:${port}/${db}`
+  url: `postgres://${username}:${password}@${host}:${port}/${db}`
 }]
 
 /**** Fortune Instance ****/
