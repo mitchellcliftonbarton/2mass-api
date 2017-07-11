@@ -69,7 +69,7 @@ const listener = fortuneHTTP(store, {
 /**** Index Route ****/
 
 app.get('/', function(req, res, next) {
-  res.send('Stuff!')
+  res.send('Stuff!');
 });
 
 /**** Login Token ****/
@@ -90,6 +90,8 @@ app.post('/api/token', cors(corsOptions), function(req, res) {
   }
   console.log('this is the request body ' + req.body);
 });
+
+module.exports = app;
 
 /**** This is what starts the server I think? ****/
 
