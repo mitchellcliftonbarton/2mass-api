@@ -93,7 +93,7 @@ app.post('/api/token', cors(corsOptions), function(req, res) {
 
 module.exports = app;
 
-/**** This is what starts the server I think? ****/
+/**** This is how fortune listens to the server i think? ****/
 
 app.use((request, response) =>
   listener(request, response).catch(error => {console.log('error')})
