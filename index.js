@@ -19,8 +19,8 @@ const corsOptions = {
 /**** Enables pre-flight requests ****/
 
 app.options('*', cors());
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 /**** Database Info ****/
 
