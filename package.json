@@ -19,7 +19,7 @@
     "fortune-http": "^1.0.17",
     "fortune-json-api": "^2.1.2",
     "fortune-postgres": "^1.6.0",
-    "pg": "6.x"
+    "pg": "^6.4.0"
   },
   "repository": {
     "type": "git",
