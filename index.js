@@ -39,11 +39,11 @@ const recordTypes = {
     artists: String,
     link: String,
     status: String,
-    text: String,
-    images: Array('image')
+    text: String
+    // images: Array('image')
   },
   image: {
-    show: 'show',
+    // show: 'show',
     url: String
   }
 }
