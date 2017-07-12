@@ -24,11 +24,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 /**** Database Info ****/
 
-const username = 'obnuflvuveexxj'
-const password = '4362adcc7d7c35b4c502c40d7db0298d68c563fbd03cd7e6240295817ce44fd7'
-const host = 'ec2-23-21-220-152.compute-1.amazonaws.com'
-const port = '5432'
-const db = 'dcbl123hop9rcv'
+// Get the database URL from the environment.
+// **Note**: The DB credentials shouldn’t be hard-coded and committed to source-control, so we get
+// the database URL from the `DATABASE_URL` environment variable. Also, Heroku can change the
+// credentials at any time, so it’s essential that they be determined dynamically. For local
+// development, use `npm run local`, which will set `DATABASE_URL` using the Heroku Toolbelt.
+const databaseURL = process.env.DATABASE_URL
 
 /**** Record Types / Models ****/
 
@@ -45,13 +46,17 @@ const recordTypes = {
   image: {
     // show: 'show',
     url: String
+  },
+  test: {
+    foo: String
   }
 }
 
 /**** The Postgres Adapter ****/
 
 const adapter = [ postgresAdapter, {
-  url: `postgres://${username}:${password}@${host}:${port}/${db}`
+  url: `${databaseURL}?ssl=true`,
+  primaryKeyType: 'integer'
 }]
 
 /**** Fortune Instance ****/
@@ -68,9 +73,9 @@ const listener = fortuneHTTP(store, {
 
 /**** Index Route ****/
 
-app.get('/', function(req, res, next) {
-  res.send('Stuff!');
-});
+// app.get('/', function(req, res, next) {
+//   res.send('Stuff!');
+// });
 
 /**** Login Token ****/
 
@@ -96,7 +101,7 @@ module.exports = app;
 /**** This is how fortune listens to the server i think? ****/
 
 app.use((request, response) =>
-  listener(request, response).catch(error => {console.log('error')})
+  listener(request, response).catch(error => console.log(error))
 )
 
 app.set('port', (process.env.PORT || 5000));
