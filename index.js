@@ -78,9 +78,9 @@ const listener = fortuneHTTP(store, {
 
 /**** Index Route ****/
 
-// app.get('/', function(req, res, next) {
-//   res.send('Stuff!');
-// });
+app.get('/', function(req, res, next) {
+  res.send('Stuff!');
+});
 
 /**** Login Token ****/
 
@@ -105,7 +105,7 @@ module.exports = app;
 
 /**** This is how fortune listens to the server i think? ****/
 
-app.use((request, response) =>
+app.use('/api', (request, response) =>
   listener(request, response).catch(error => console.log(error))
 )
 
