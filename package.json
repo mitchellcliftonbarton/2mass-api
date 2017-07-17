@@ -26,7 +26,8 @@
     "fortune-json-api": "^2.1.2",
     "fortune-postgres": "^1.6.1",
     "pg": "^6.4.1",
-    "serve-favicon": "^2.4.3"
+    "serve-favicon": "^2.4.3",
+    "uuid": "^3.1.0"
   },
   "repository": {
     "type": "git",
