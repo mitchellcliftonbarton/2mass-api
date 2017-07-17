@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
+const uuid = require('uuid/v5')
 const pg = require('pg')
 const http = require('http')
 const fortune = require('fortune')
@@ -8,6 +9,10 @@ const fortuneHTTP = require('fortune-http')
 const postgresAdapter = require('fortune-postgres')
 const jsonApiSerializer = require('fortune-json-api')
 const app = express();
+
+/**** Constants ****/
+
+const UUID_NAMESPACE = '9b2481a9-4cd1-4bbe-a0a7-4f7cfb8bbbb3'
 
 /**** Options for Cors ****/
 
@@ -56,7 +61,7 @@ const recordTypes = {
 
 const adapter = [ postgresAdapter, {
   url: `${databaseURL}?ssl=true`,
-  primaryKeyType: 'integer'
+  generatePrimaryKey: () => uuid(Date.now().toString(), UUID_NAMESPACE)
 }]
 
 /**** Fortune Instance ****/
