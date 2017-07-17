@@ -54,6 +54,9 @@ const recordTypes = {
   },
   test: {
     foo: String
+  },
+  foo: {
+    bar: String
   }
 }
 
