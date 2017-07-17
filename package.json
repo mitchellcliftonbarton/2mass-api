@@ -1,7 +1,12 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.2.6",
-  "description": "A sample Node.js app using Express 4",
+  "name": "2mass-api",
+  "version": "0.0.1",
+  "description": "API server for http://2mass.info",
+  "private": true,
+  "author": "Mitchell Barton <mitchell@ringseven.com>",
+  "contributors": [
+    "Sean Juarez <seanjcodes@gmail.com>"
+  ],
   "engines": {
     "node": ">=6.11.1"
   },
@@ -30,7 +35,11 @@
   "keywords": [
     "node",
     "heroku",
-    "express"
+    "express",
+    "fortunejs",
+    "postgres",
+    "api",
+    "json api"
   ],
   "license": "MIT"
 }
