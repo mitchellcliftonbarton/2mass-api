@@ -17,12 +17,14 @@ const UUID_NAMESPACE = '9b2481a9-4cd1-4bbe-a0a7-4f7cfb8bbbb3'
 /**** Options for Cors ****/
 
 const corsOptions = {
-  origin: 'http://localhost:4200',
+  // origin: 'http://localhost:4200',
+  origin: 'http://poop.mitchellbarton.com/',
   optionsSuccessStatus: 200
 }
 
 /**** Enables pre-flight requests ****/
 
+app.use(cors())
 app.options('*', cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -46,6 +48,7 @@ const recordTypes = {
     link: String,
     status: String,
     text: String
+    // slug: String
     // images: Array('image')
   },
   image: {
@@ -113,33 +116,6 @@ app.use('/api', (request, response) =>
 )
 
 app.set('port', (process.env.PORT || 5000));
-
-//
-// app.use(express.static(__dirname + '/public'));
-//
-// // views is directory for all template files
-// app.set('views', __dirname + '/views');
-// app.set('view engine', 'ejs');
-//
-// app.get('/', function(request, response) {
-//   response.render('pages/index');
-// });
-//
-// app.get('/cool', function(request, response) {
-//   response.send(cool());
-// });
-
-// app.get('/db', function (request, response) {
-//   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-//     client.query('SELECT * FROM test_table', function(err, result) {
-//       done();
-//       if (err)
-//        { console.error(err); response.send("Error " + err); }
-//       else
-//        { response.render('pages/db', {results: result.rows} ); }
-//     });
-//   });
-// });
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
