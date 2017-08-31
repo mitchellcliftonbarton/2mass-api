@@ -44,22 +44,26 @@ const recordTypes = {
   show: {
     title: String,
     when: String,
-    artists: String,
+    artists: Array('artist'),
     link: String,
     status: String,
-    text: String
-    // slug: String
-    // images: Array('image')
+    text: String,
+    images: Array('image'),
+    pieces: Array('piece')
   },
   image: {
-    // show: 'show',
-    url: String
+    show: 'show',
+    url: String,
+    title: String
   },
-  test: {
-    foo: String
+  artist: {
+    name: String,
+    pieces: Array('piece')
   },
-  foo: {
-    bar: String
+  piece: {
+    title: String,
+    show: 'show',
+    artist: 'artist'
   }
 }
 
