@@ -17,8 +17,9 @@ const UUID_NAMESPACE = '9b2481a9-4cd1-4bbe-a0a7-4f7cfb8bbbb3'
 /**** Options for Cors ****/
 
 const corsOptions = {
-  origin: 'http://localhost:4200',
+  // origin: 'http://localhost:4200',
   // origin: 'http://poop.mitchellbarton.com/',
+  origin: '*',
   optionsSuccessStatus: 200
 }
 
