@@ -17,8 +17,8 @@ const UUID_NAMESPACE = '9b2481a9-4cd1-4bbe-a0a7-4f7cfb8bbbb3'
 /**** Options for Cors ****/
 
 const corsOptions = {
-  // origin: 'http://localhost:4200',
-  origin: 'http://poop.mitchellbarton.com/',
+  origin: 'http://localhost:4200',
+  // origin: 'http://poop.mitchellbarton.com/',
   optionsSuccessStatus: 200
 }
 
@@ -44,26 +44,27 @@ const recordTypes = {
   show: {
     title: String,
     when: String,
-    artists: Array('artist'),
     link: String,
     status: String,
     text: String,
-    images: Array('image'),
-    pieces: Array('piece')
+    images: [ Array('image'), 'show' ],
+    pieces: [ Array('piece'), 'show' ],
+    people: [ Array('person'), 'show' ]
   },
   image: {
-    show: 'show',
+    show: [ 'show', 'images' ],
     url: String,
     title: String
   },
-  artist: {
+  person: {
     name: String,
-    pieces: Array('piece')
+    show: [ 'show', 'people' ],
+    pieces: [ Array('piece'), 'person' ]
   },
   piece: {
     title: String,
-    show: 'show',
-    artist: 'artist'
+    show: [ 'show', 'pieces' ],
+    person: [ 'person', 'pieces' ]
   }
 }
 
