@@ -55,7 +55,10 @@ const recordTypes = {
   image: {
     show: [ 'show', 'images' ],
     url: String,
-    title: String
+    title: String,
+    piecetitle: String,
+    artists: String,
+    size: String
   },
   person: {
     name: String,
